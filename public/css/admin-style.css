@@ -1,0 +1,20 @@
+@font-face {
+    font-family: another-typewriter;
+    src: url(../assets/fonts/atwriter.ttf);
+}
+
+  body {
+    font-family: 'Lato', sans-serif;
+}
+.another-font {
+    font-family: another-typewriter, monospace;
+}
+.jetbraint-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.navbar-brand {
+    font-family: 'Yellowtail', cursive;
+    font-weight: 700;
+    font-size: 24px;
+}

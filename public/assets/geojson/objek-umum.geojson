@@ -1,0 +1,244 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8703932552969,
+            -2.247430032312296,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Poskesdes"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8702069663207,
+            -2.249374374757681,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Mushola Al-Amin"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8657130875974,
+            -2.256858192962592,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Koperasi Pamalian Bauntung"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.864589685016,
+            -2.257022404735599,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Pasar Desa Pamalian"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8642391991619,
+            -2.257086153288312,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Masjid Haqul Yaqin"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.864005591798,
+            -2.257167835821194,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Pemakaman"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8641579881014,
+            -2.256842114089663,
+            0
+          ]
+        },
+        "properties": {
+          "name": "TPA Haqul Yaqin"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.862702513449,
+            -2.257413659534492,
+            0
+          ]
+        },
+        "properties": {
+          "name": "SDN 1 Pamalian"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8622267581455,
+            -2.257929688031442,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Lapangan Sepakbola Pamalian"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8618756499104,
+            -2.257505148610733,
+            0
+          ]
+        },
+        "properties": {
+          "name": "SMPN 1 Atap Kota Besi"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.862136247436,
+            -2.257441516264754,
+            0
+          ]
+        },
+        "properties": {
+          "name": "TK Desa Pamalian"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8621181660367,
+            -2.257360158157709,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Balai Desa"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8621360862792,
+            -2.257314923184137,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Perpustakaan Desa"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8621359941937,
+            -2.257242584280823,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Kantor Desa Pamalian"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.8580652019077,
+            -2.258179189366548,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Pokdakan Bhabin Wars Bermasy"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.835236,
+            -2.269637,
+            0
+          ]
+        },
+        "properties": {
+          "name": "Masjid Nurul Yaqin",
+          "description": ","
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.835357,
+            -2.269564,
+            0
+          ]
+        },
+        "properties": {
+          "name": "TPA Nurul Yaqin"
+        }
+      }
+    ]
+  }

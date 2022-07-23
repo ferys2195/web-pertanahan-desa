@@ -1,0 +1,24 @@
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: start;
+    margin: 10px;
+}
+
+#map {
+    height: 100vh;
+}
+.leaflet-tooltip.no-background {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: white;
+}
