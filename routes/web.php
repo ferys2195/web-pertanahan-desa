@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,10 @@ Route::prefix('admin')
     ->group(function () {
         require __DIR__ . '/administrator.php';
     });
+Route::get('test', function () {
+    $template = new TemplateProcessor('assets/documents/spt.docx');
+    $template->setImageValue('sket', ['path' => 'assets/images/sket.jpg', 'width' => 378, 'height' => 378, 'ratio' => false]);
+    $pathToSave = 'assets/documents/' . "holla"  . '-' . date('d-m-Y') . '.docx';
+    $template->saveAs($pathToSave);
+    return response()->download(public_path($pathToSave))->deleteFileAfterSend(true);
+});
