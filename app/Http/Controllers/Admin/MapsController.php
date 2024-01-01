@@ -9,6 +9,6 @@ class MapsController extends Controller
 {
     public function index()
     {
-        return view('layouts.admin.maps');
+        return view('pages.admin.maps');
     }
 }

@@ -64,7 +64,7 @@ const daftarTanah = new L.GeoJSON.AJAX(`${baseUrl}/api/tanah`, {
 
         layer.on({
             click: function (e) {
-                map.fitBounds(e.target._bounds);
+                map.flyToBounds(e.target._bounds, { duration: 2 });
                 if (currentMarkers.length != 0) {
                     layerGroup.clearLayers();
                     currentMarkers.length = 0;

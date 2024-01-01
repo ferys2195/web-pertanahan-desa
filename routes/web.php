@@ -14,7 +14,7 @@ use PhpOffice\PhpWord\TemplateProcessor;
 |
 */
 
-Route::view('/', 'home');
+Route::view('/', 'pages.home')->name('home');
 require __DIR__ . '/auth.php';
 Route::prefix('admin')
     ->middleware('auth')
@@ -29,3 +29,5 @@ Route::get('test', function () {
     $template->saveAs($pathToSave);
     return response()->download(public_path($pathToSave))->deleteFileAfterSend(true);
 });
+
+Route::get('admin-template', fn () => view('dashboard'));
