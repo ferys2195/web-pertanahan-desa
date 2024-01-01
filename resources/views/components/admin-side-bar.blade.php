@@ -18,7 +18,7 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{ route('admin.tanah.index') }}">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Daftar
+                    <i class="align-middle" data-feather="table"></i> <span class="align-middle">Daftar
                         Pengukuran</span>
                 </a>
             </li>
@@ -30,50 +30,20 @@
                 </a>
             </li>
 
+            <li class="sidebar-header">
+                Tools
+            </li>
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{ route('admin.verify') }}">
-                    <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Verifikasi
+                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Verifikasi
                         Surat Tanah</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-blank.html">
-                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-                </a>
-            </li>
-
-            <li class="sidebar-header">
-                Settings
-            </li>
-
-            <li class="sidebar-item">
                 <a class="sidebar-link" href="ui-buttons.html">
-                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-forms.html">
-                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-cards.html">
-                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-typography.html">
-                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="icons-feather.html">
-                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                    <i class="align-middle" data-feather="pen-tool"></i> <span class="align-middle">Pemetaan
+                        Tanah</span>
                 </a>
             </li>
 
@@ -83,15 +53,30 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="charts-chartjs.html">
-                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Export
+                    <i class="align-middle" data-feather="upload"></i> <span class="align-middle">Export
                         Database</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="maps-google.html">
-                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Import
+                    <i class="align-middle" data-feather="download"></i> <span class="align-middle">Import
                         Database</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
+                Lainnya
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('admin.settings') }}" id="link-settings">
+                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Pengaturan</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="ui-buttons.html">
+                    <i class="align-middle" data-feather="help-circle"></i> <span class="align-middle">Bantuan</span>
                 </a>
             </li>
         </ul>

@@ -10,7 +10,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col mt-0">
-                                        <h5 class="card-title">Sales</h5>
+                                        <h5 class="card-title">Terdaftar di Desa</h5>
                                     </div>
 
                                     <div class="col-auto">
@@ -31,7 +31,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col mt-0">
-                                        <h5 class="card-title">Visitors</h5>
+                                        <h5 class="card-title">Tanah Belum Terdaftar</h5>
                                     </div>
 
                                     <div class="col-auto">
@@ -54,7 +54,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col mt-0">
-                                        <h5 class="card-title">Earnings</h5>
+                                        <h5 class="card-title">Terdaftar di Kecamatan</h5>
                                     </div>
 
                                     <div class="col-auto">
@@ -75,7 +75,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col mt-0">
-                                        <h5 class="card-title">Orders</h5>
+                                        <h5 class="card-title">Total Area</h5>
                                     </div>
 
                                     <div class="col-auto">
@@ -84,11 +84,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h1 class="mt-1 mb-3">64</h1>
+                                <h1 class="mt-1 mb-3">123.546 M<sup>2</sup>
+                                </h1>
                                 <div class="mb-0">
-                                    <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i>
-                                        -2.25% </span>
-                                    <span class="text-muted">Since last week</span>
+                                    <span class="text-muted">Jumlah luasan yang terdaftar</span>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +116,7 @@
             <div class="card flex-fill w-100">
                 <div class="card-header">
 
-                    <h5 class="card-title mb-0">Browser Usage</h5>
+                    <h5 class="card-title mb-0">Jenis Penggunaan Tanah</h5>
                 </div>
                 <div class="card-body d-flex">
                     <div class="align-self-center w-100">
@@ -130,15 +129,15 @@
                         <table class="table mb-0">
                             <tbody>
                                 <tr>
-                                    <td>Chrome</td>
+                                    <td>Perkebunan</td>
                                     <td class="text-end">4306</td>
                                 </tr>
                                 <tr>
-                                    <td>Firefox</td>
+                                    <td>Pekarangan</td>
                                     <td class="text-end">3801</td>
                                 </tr>
                                 <tr>
-                                    <td>IE</td>
+                                    <td>Rumah</td>
                                     <td class="text-end">1689</td>
                                 </tr>
                             </tbody>
@@ -347,7 +346,7 @@
             new Chart(document.getElementById("chartjs-dashboard-pie"), {
                 type: "pie",
                 data: {
-                    labels: ["Chrome", "Firefox", "IE"],
+                    labels: ["Perkebunan", "Pekarangan", "Rumah"],
                     datasets: [{
                         data: [4306, 3801, 1689],
                         backgroundColor: [

@@ -70,6 +70,10 @@
                 }
             })
         });
+        document.getElementById('link-settings').addEventListener('click', () => {
+            const myModalAlternative = new bootstrap.Modal('#staticBackdrop')
+            myModalAlternative.show()
+        })
     </script>
     @stack('foot')
 </body>
