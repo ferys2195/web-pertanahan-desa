@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class MapApp extends Component
+class AdminSideBar extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class MapApp extends Component
      */
     public function render()
     {
-        return view('components.map-app');
+        return view('components.admin-side-bar');
     }
 }

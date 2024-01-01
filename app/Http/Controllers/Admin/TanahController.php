@@ -24,7 +24,7 @@ class TanahController extends Controller
     {
         $tanah = $this->repo->getAll();
 
-        return view('list', compact('tanah'));
+        return view('pages.admin.list', compact('tanah'));
     }
 
     /**
@@ -34,7 +34,7 @@ class TanahController extends Controller
      */
     public function create()
     {
-        return view('form');
+        return view('pages.admin.form');
     }
 
     /**

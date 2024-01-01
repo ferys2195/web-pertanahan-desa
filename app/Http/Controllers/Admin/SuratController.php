@@ -33,7 +33,7 @@ class SuratController extends Controller
     {
         $tanah = $tanahRepository->get($id);
         if (!$tanah->registration['is_register']) {
-            return view('layouts.admin.create-surat', compact('tanah'));
+            return view('pages.admin.create-surat', compact('tanah'));
         }
         return "Tanah Sudah Terdaftar";
     }
