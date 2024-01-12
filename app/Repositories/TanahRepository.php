@@ -191,6 +191,7 @@ class TanahRepository
         $updated->batas = $batas;
         $updated->peruntukan = $request['peruntukan'];
         $updated->riwayat_tanah = $request['riwayat'];
+        $updated->land_sketch = $request['land_sketch'];
         $updated->save();
 
         return $updated;

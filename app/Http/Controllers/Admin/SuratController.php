@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\SuratRepository;
 use App\Repositories\TanahRepository;
+use Illuminate\Support\Facades\Storage;
 
 class SuratController extends Controller
 {
@@ -45,7 +46,25 @@ class SuratController extends Controller
     }
     public function update(Request $request, $id)
     {
+        /**
+         * Upload Image Land Sketch
+         */
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+
+            // Simpan file dan dapatkan path
+            $path = $file->storeAs('land_sketch', $fileName, 'public');
+
+            // Update request dengan nama file baru
+            $request->merge(['land_sketch' => $fileName]);
+        }
         $updated = TanahRepository::updateForSuratTanah($request->all(), $id);
+
         if ($updated) {
             $payloads = [
                 'tanah_id' => $id,

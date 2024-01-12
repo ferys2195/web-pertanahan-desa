@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Carbon\Carbon;
 use App\Models\Tanah;
 use App\Helpers\SuratHelper;
+use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class SuratRepository
@@ -58,6 +59,7 @@ class SuratRepository
                 'coordinates' => SuratHelper::coordinate($tanah->coordinates['data'])
             ];
             $template->setValues($data_replace);
+            $template->setImageValue('land_sketch', ['path' => 'storage/land_sketch/' .  $tanah->land_sketch, 'width' => 378, 'height' => 378, 'ratio' => false]);
             $pathToSave = 'assets/documents/' . $tanah->pemilik['nama']  . '-' . date('d-m-Y') . '.docx';
             $template->saveAs($pathToSave);
             return response()->download(public_path($pathToSave))->deleteFileAfterSend(true);

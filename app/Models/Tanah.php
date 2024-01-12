@@ -17,6 +17,7 @@ class Tanah extends Model
         'peruntukan',
         'riwayat_tanah',
         'coordinates',
+        'land_sketch',
         'registration',
     ];
 
