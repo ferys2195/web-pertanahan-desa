@@ -11,3 +11,4 @@ Route::view('settings', 'pages.admin.settings')->name('settings');
 Route::resource('/tanah', AdminTanahController::class);
 Route::get('/maps', [MapsController::class, 'index'])->name('maps');
 Route::resource('/surat', SuratController::class);
+Route::get('pemetaan', fn () => view('pages.admin.pemetaan'))->name('pemetaan');
