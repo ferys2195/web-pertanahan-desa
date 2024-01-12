@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th scope="col">Nama Pemilik</th>
+                <th scope="col">Peruntukan</th>
                 <th scope="col">Lokasi</th>
                 <th scope="col">Status Pendaftaran</th>
                 <th scope="col">Opsi</th>
@@ -26,6 +27,7 @@
             @foreach ($tanah as $it)
                 <tr>
                     <td class="w-25">{{ $it->pemilik['nama'] }}</td>
+                    <td class="w-25">{{ $it->peruntukan ?? '-' }}</td>
                     <td class="w-50">{{ $it->letak }}</td>
                     <td>{!! $it->registration['is_register']
                         ? '<small class="text-success">Terdaftar</small>'

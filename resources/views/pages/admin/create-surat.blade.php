@@ -21,7 +21,7 @@
     </script>
 @endpush
 @section('content')
-    <form action="{{ route('admin.surat.update', $tanah->id) }}" method="post">
+    <form action="{{ route('admin.surat.update', $tanah->id) }}" method="post" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row my-3 d-flex">
@@ -203,9 +203,10 @@
                         <div class="form-group row mb-3">
                             <label class="col-md-4 col-form-label-sm">Gambar Tanah</label>
                             <div class="col-md-8">
-                                <div class="dropzone dz-clickable dz-default dz-message text-center">
+                                {{-- <div class="dropzone dz-clickable dz-default dz-message text-center">
                                     <i class="bi bi-cloud-arrow-up" style="font-size: 2rem;"></i>
-                                </div>
+                                </div> --}}
+                                <input type="file" name="file" id="">
                             </div>
                         </div>
                     </div>

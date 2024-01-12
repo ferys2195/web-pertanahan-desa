@@ -60,10 +60,11 @@
                     <h1 class="modal-title fs-6 fw-bold" id="staticBackdropLabel">Disclaimer</h1>
                 </div>
                 <div class="modal-body">
-                    <p class="small lh-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, quas
-                        asperiores?
-                        Exercitationem blanditiis, facere est vitae quos totam quas similique perspiciatis minus
-                        deleniti quisquam assumenda error quod, culpa cum repellendus!</p>
+                    <p class="small lh-lg">Bidang Tanah yang terdapat di dalam website ini hanya menegaskan riwayat
+                        kepemilikan tanah. Surat keterangan riwayat tanah
+                        yang di terbitkan oleh Pemerintah Desa Pamalian hanya sebagai salah satu alat bukti tertulis
+                        untuk menunjukkan kepemilikan tanah guna
+                        kepentingan proses pendaftaran tanah.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Saya Setuju</button>

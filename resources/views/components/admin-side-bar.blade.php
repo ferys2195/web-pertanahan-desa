@@ -41,7 +41,7 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-buttons.html">
+                <a class="sidebar-link" href="{{ route('admin.pemetaan') }}">
                     <i class="align-middle" data-feather="pen-tool"></i> <span class="align-middle">Pemetaan
                         Tanah</span>
                 </a>

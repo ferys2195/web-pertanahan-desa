@@ -20,6 +20,7 @@
     <link href="{{ asset('assets/templates/admin-kit/css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     @stack('head')
 </head>
 
@@ -31,13 +32,6 @@
             <x-admin-top-bar />
 
             <main class="content">
-                @if (session('success'))
-                    <div class="alert alert-info alert-dismissible show fade">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
-
                 <div class="container-fluid p-0">
                     <h1 class="h3 mb-3"><strong>@yield('title')</strong></h1>
                     @yield('content')
@@ -57,6 +51,28 @@
 
     <script src="{{ asset('assets/templates/admin-kit/js/app.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        @if (session('success'))
+            Toastify({
+                text: "{{ session('success') }}",
+                duration: 3000,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "#2f96b4",
+                    borderRadius: "0.375rem",
+                    width: "300px",
+                    minHeight: "45px",
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "0.5rem 0.75rem",
+                    spacing: "1.5rem"
+                },
+            }).showToast();
+        @endif
+    </script>
     <script>
         document.getElementById("link-logout").addEventListener("click", () => {
             Swal.fire({
