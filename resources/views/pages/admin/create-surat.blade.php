@@ -41,14 +41,19 @@
                         </div>
                         <div class="form-group row mb-3">
                             @php
-                                $ttl = explode(',', $tanah->pemilik['ttl']);
-                                $tglLahir = explode('-', $ttl[1]);
-                                $tglLahir = $tglLahir[2] . '-' . $tglLahir[1] . '-' . $tglLahir[0];
-                                $tglLahir = str_replace(' ', '', $tglLahir);
+                                if ($tanah->pemilik['ttl'] != null) {
+                                    $ttl = explode(',', $tanah->pemilik['ttl']);
+                                    $tglLahir = explode('-', $ttl[1]);
+                                    $tglLahir = $tglLahir[2] . '-' . $tglLahir[1] . '-' . $tglLahir[0];
+                                    $tglLahir = str_replace(' ', '', $tglLahir);
+                                } else {
+                                    $ttl = null;
+                                    $tglLahir = null;
+                                }
                             @endphp
                             <label class="col-md-4 col-form-label-sm">Tempat/Tgl. Lahir</label>
                             <div class="col-md-4">
-                                <input type="text" value="{{ $ttl[0] }}" class="form-control form-control-sm"
+                                <input type="text" value="{{ $ttl[0] ?? '' }}" class="form-control form-control-sm"
                                     name="tempat_lahir" placeholder="Tempat Lahir .." required>
                             </div>
                             <div class="col-md-4">
@@ -114,9 +119,9 @@
                                     <label class="col-md-3 col-form-label-sm">Panjang</label>
                                     <div class="col-md-4">
                                         <div class="input-group input-group-sm">
-                                            <input type="text" value="{{ $tanah->ukuran['panjang'] }}" name="panjang"
-                                                class="form-control form-control-sm" aria-describedby="input-coordinate-x"
-                                                required>
+                                            <input type="text" value="{{ $tanah->ukuran['panjang'] ?? '' }}"
+                                                name="panjang" class="form-control form-control-sm"
+                                                aria-describedby="input-coordinate-x" required>
                                             <span class="input-group-text" id="input-coordinate-x">m</span>
                                         </div>
                                     </div>
@@ -125,9 +130,9 @@
                                     <label class="col-md-3 col-form-label-sm">Lebar</label>
                                     <div class="col-md-4">
                                         <div class="input-group input-group-sm">
-                                            <input type="text" value="{{ $tanah->ukuran['lebar'] }}" name="lebar"
-                                                class="form-control form-control-sm" aria-describedby="input-coordinate-x"
-                                                required>
+                                            <input type="text" value="{{ $tanah->ukuran['lebar'] ?? '' }}"
+                                                name="lebar" class="form-control form-control-sm"
+                                                aria-describedby="input-coordinate-x" required>
                                             <span class="input-group-text" id="input-coordinate-x">m</span>
                                         </div>
                                     </div>
@@ -136,9 +141,9 @@
                                     <label class="col-md-3 col-form-label-sm">Luas</label>
                                     <div class="col-md-4">
                                         <div class="input-group input-group-sm">
-                                            <input type="number" value="{{ $tanah->ukuran['luas'] }}" name="luas"
-                                                class="form-control form-control-sm" aria-describedby="input-coordinate-x"
-                                                required>
+                                            <input type="number" value="{{ $tanah->ukuran['luas'] ?? '' }}"
+                                                name="luas" class="form-control form-control-sm"
+                                                aria-describedby="input-coordinate-x" required>
                                             <span class="input-group-text" id="input-coordinate-x">m<sup>2</sup></span>
                                         </div>
 
