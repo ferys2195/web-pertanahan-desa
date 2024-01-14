@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MapsClientResource;
 use App\Models\Tanah;
+use App\Repositories\Api\TanahRepository as ApiTanahRepository;
 use App\Repositories\TanahRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -45,9 +46,12 @@ class TanahController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ApiTanahRepository $tanahRepository)
     {
-        //
+        return new JsonResponse([
+            'success' => true,
+            'data' => $tanahRepository->store($request->all())
+        ]);
     }
 
     /**
