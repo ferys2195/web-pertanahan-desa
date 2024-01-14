@@ -83,6 +83,7 @@
     <script src="/js/maps/base-layer.js"></script>
     <script src="/js/maps/desa-layer.js"></script>
     <script src="/js/admin/maps.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var headerHeight = document.querySelector('header').offsetHeight;

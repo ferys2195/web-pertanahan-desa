@@ -2,13 +2,13 @@
 @section('title', 'Peta Pertanahan')
 @section('offcanvas-body')
     <label for="fileInput" class="mb-1"><small>Pilih File GPX</small></label>
-    <input type="file" id="fileInput" class="form-control">
+    <input type="file" id="fileInput" class="form-control" accept=".gpx">
     <div class="mb-2">
         <small id="coordinate-selected"></small>
     </div>
 
     <div class="mb-2 d-none" id="save-layout">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToPengukuranModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy"
                 viewBox="0 0 16 16">
                 <path d="M11 2H9v3h2z" />
@@ -21,21 +21,38 @@
 @endsection
 @section('additional-template')
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addToPengukuranModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="addToPengukuranModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nama Pemilik</h1>
+                    <h1 class="modal-title fs-5" id="addToPengukuranModalLabel">Nama Pemilik</h1>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Masukan Nama Pemilik">
+                    <div class="d-flex align-items-center gap-1 py-2 d-none" id="success-alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
+                        <small class="text-success">
+                            Berhasil Ditambahkan
+                        </small>
+                    </div>
+                    <div class="input-group was-validated">
+                        <input type="text" class="form-control" id="nama-pemilik" placeholder="Masukan Nama Pemilik"
+                            aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                        <div class="invalid-feedback">
+                            Nama Tidak Boleh Kosong !
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer justify-content-between">
+                <div class="modal-footer justify-content-between" disabled>
                     <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
                     <div>
-                        <button type="button" class="btn btn-sm btn-primary">Simpan</button>
-                        <button type="button" class="btn btn-sm btn-outline-primary">Simpan & Buatkan Surat</button>
+                        <button type="button" id="btn-save" class="btn btn-sm btn-primary">Simpan</button>
+                        <button type="button" id="btn-save-create" class="btn btn-sm btn-outline-primary">Simpan & Buatkan
+                            Surat</button>
                     </div>
                 </div>
             </div>
@@ -44,16 +61,10 @@
 @endsection
 @push('foot')
     <script>
-        const p1 = [-2.52010, 112.94731];
-        const p2 = [-2.51984, 112.94761];
-        const distance = getDistance(p1, p2)
-        console.log("jarak");
-        console.log(distance.toFixed(2));
-    </script>
-    <script>
         const saveLayout = document.getElementById("save-layout");
         const coordinateSelection = [];
         let polygon = null;
+        let output = null;
         const coorsel = document.getElementById('coordinate-selected');
         document.getElementById('fileInput').addEventListener('change', function(event) {
             const file = event.target.files[0];
@@ -124,7 +135,7 @@
                 }));
             };
 
-            const output = {
+            output = {
                 data: convertData(coorUtm),
                 type: "UTM",
                 zone: coorUtm[0].zone.toString() + coorUtm[0].band // assuming all objects have the same zone and band
@@ -133,10 +144,85 @@
                 `P${index+1} = X : ${coord.x.toFixed()} Y : ${coord.y.toFixed()}` + "\n")
             coorsel.innerText = coorview
 
-            if (output.data.length > 2) {
-                saveLayout.classList.toggle("d-none")
-                console.log("yes")
+            if (output.data.length > 2) saveLayout.classList.remove("d-none")
+            else saveLayout.classList.add("d-none")
+        }
+    </script>
+    <script>
+        const btnSave = document.getElementById('btn-save')
+        const btnSaveAndCreateSuratTanah = document.getElementById('btn-save-create')
+        const namaPemilik = document.getElementById('nama-pemilik')
+        btnSave.addEventListener('click', async (e) => {
+            const target = e.target
+            if (namaPemilik.value.length == 0) {
+                return
             }
+            loadingButton(e.target)
+            disableButton()
+            const body = {
+                'nama': namaPemilik.value,
+                'coordinates': output,
+                'registration': {
+                    'is_register': false
+                }
+            }
+            const save = await saveFloating(body)
+            if (save.success) {
+                document.getElementById('success-alert').classList.remove('d-none')
+                setInterval(() => {
+                    location.reload()
+                }, 2000);
+            }
+        });
+        btnSaveAndCreateSuratTanah.addEventListener('click', async (e) => {
+            if (namaPemilik.value.length == 0) {
+                return
+            }
+            loadingButton(e.target)
+            disableButton()
+            const body = {
+                'nama': namaPemilik.value,
+                'coordinates': output,
+                'registration': {
+                    'is_register': false
+                }
+            }
+            const save = await saveFloating(body)
+            if (save.success) {
+                window.location.href = '/admin/surat/' + save.data.id
+            }
+        });
+
+        async function saveFloating(payload) {
+            const req = await fetch('/api/tanah', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            const res = await req.json()
+            return res
+        }
+
+        function loadingButton(element) {
+            // element.setAttribute('disabled', 'disabled')
+            element.innerHTML = `
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="visually-hidden">Loading...</span>
+            `
+        }
+
+        function disableButton() {
+            let modalFooter = document.querySelector('.modal-footer');
+
+            // Temukan semua tombol di dalam modal footer
+            let buttons = modalFooter.querySelectorAll('button');
+
+            // Loop melalui setiap tombol dan disable
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
         }
     </script>
 @endpush
