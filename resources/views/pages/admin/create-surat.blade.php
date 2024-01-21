@@ -244,29 +244,16 @@
                             </div>
                         </div>
                         <div class="form-group row mb-3">
-                            <label class="col-md-4 col-form-label-sm">Wilayah</label>
+                            <label class="col-md-4 col-form-label-sm">Wilayah RT/RW</label>
                             <div class="col-md-8">
-                                <div class="form-group row mb-2">
-                                    <label class="col-md-3 col-form-label-sm">RT</label>
-                                    <div class="col-md-4">
-                                        <input type="number" name="rt" class="form-control form-control-sm"
-                                            required>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-2">
-                                    <label class="col-md-3 col-form-label-sm">RW</label>
-                                    <div class="col-md-4">
-                                        <input type="number" name="rw" class="form-control form-control-sm"
-                                            required>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-2">
-                                    <label class="col-md-3 col-form-label-sm">Nama Ketua RT</label>
-                                    <div class="col-md-4">
-                                        <input type="text" name="nama_rt" class="form-control form-control-sm"
-                                            required>
-                                    </div>
-                                </div>
+                                <select name="rt" class="form-select form-select-sm">
+                                    <option value="">Pilih Wilayah</option>
+                                    @foreach ($pejabat->value->pejabat_wilayah as $pw)
+                                        <option value="{{ $pw->rt }}">
+                                            {{ 'RT.' . str_pad($pw->rt, 3, '0', STR_PAD_LEFT) . '/RW.' . str_pad($pw->rw, 3, '0', STR_PAD_LEFT) }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row mb-3 d-flex align-items-center">

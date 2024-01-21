@@ -91,6 +91,27 @@
             myModalAlternative.show()
         })
     </script>
+    <script>
+        function unreadyFeature() {
+            return Toastify({
+                text: "Oops.. Fitur Belum Tersedia !",
+                duration: 3000,
+                gravity: "bottom", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "#2f96b4",
+                    borderRadius: "0.375rem",
+                    width: "300px",
+                    minHeight: "45px",
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "0.5rem 0.75rem",
+                    spacing: "1.5rem"
+                },
+            }).showToast();
+        }
+    </script>
     @stack('foot')
 </body>
 

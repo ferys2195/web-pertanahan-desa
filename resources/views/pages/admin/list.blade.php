@@ -61,11 +61,13 @@
                                 <li><a href="#" class="dropdown-item" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal" data-detail="{{ $it }}"><i
                                             class="bi bi-eye-fill"></i> <small>Tampilkan Lebih Detail</small></a></li>
-                                <li><a href="#" class="dropdown-item" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><i class="bi bi-pencil-square"></i>
+                                <li><a href="#" onclick="unreadyFeature()" class="dropdown-item"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i
+                                            class="bi bi-pencil-square"></i>
                                         <small>Edit Tanah</small></a></li>
-                                <li><a href="#" class="dropdown-item" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Lihat Tanah pada Peta"><i class="bi bi-map-fill text-success"></i>
+                                <li><a href="#" onclick="unreadyFeature()" class="dropdown-item"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Tanah pada Peta"><i
+                                            class="bi bi-map-fill text-success"></i>
                                         <small>Tampilkan pada peta</small></a>
                                 </li>
                                 @if (!$it->registration['is_register'])

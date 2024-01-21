@@ -51,7 +51,8 @@
                     <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
                     <div>
                         <button type="button" id="btn-save" class="btn btn-sm btn-primary">Simpan</button>
-                        <button type="button" id="btn-save-create" class="btn btn-sm btn-outline-primary">Simpan & Buatkan
+                        <button type="button" id="btn-save-create" class="btn btn-sm btn-outline-primary">Simpan &
+                            Buatkan
                             Surat</button>
                     </div>
                 </div>
