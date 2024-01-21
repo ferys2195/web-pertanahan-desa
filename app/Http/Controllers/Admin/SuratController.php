@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Tanah;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Repositories\SuratRepository;
 use App\Repositories\TanahRepository;
 use Illuminate\Support\Facades\Storage;
@@ -32,9 +33,11 @@ class SuratController extends Controller
 
     public function show($id, TanahRepository $tanahRepository)
     {
+
         $tanah = $tanahRepository->get($id);
+        $pejabat = Setting::where('key', 'pejabat')->first('value');
         if (!$tanah->registration['is_register']) {
-            return view('pages.admin.create-surat', compact('tanah'));
+            return view('pages.admin.create-surat', compact('tanah', 'pejabat'));
         }
         return "Tanah Sudah Terdaftar";
     }

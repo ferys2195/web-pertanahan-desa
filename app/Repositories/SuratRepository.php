@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Carbon\Carbon;
 use App\Models\Tanah;
+use App\Models\Setting;
 use App\Helpers\SuratHelper;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpWord\TemplateProcessor;
@@ -14,13 +15,16 @@ class SuratRepository
     public static function generateSurat($data)
     {
         $tanah = Tanah::find($data['tanah_id']);
+        $pejabat = Setting::where('key', 'pejabat')->first('value');
         $tgl_permohonan = $data['tanggal_permohonan'];
         $tgl_surat_tugas = $data['tanggal_surat_tugas'];
         $tgl_pengukuran = $data['tanggal_pengukuran'];
-        $nama_rt = $data['nama_rt'];
         $isHGU = $data['is_hgu'];
-        $rt = str_pad($data['rt'], 3, '0', STR_PAD_LEFT);
-        $rw = str_pad($data['rw'], 3, '0', STR_PAD_LEFT);
+        $pejabatWilayahGroupedByRt = collect($pejabat->value->pejabat_wilayah)->groupBy('rt');
+        $pejabatWilayahRT = (object) $pejabatWilayahGroupedByRt->get($data['rt'])->first();
+        $nama_rt = $pejabatWilayahRT->nama;
+        $rt = str_pad($pejabatWilayahRT->rt, 3, '0', STR_PAD_LEFT);
+        $rw = str_pad($pejabatWilayahRT->rw, 3, '0', STR_PAD_LEFT);
         if (!$tanah->registration['is_register']) {
             $template = ($isHGU == "1") ?
                 new TemplateProcessor('assets/documents/spt-desa.docx') :
@@ -56,7 +60,12 @@ class SuratRepository
                 'barat' => SuratHelper::batas($tanah->batas['barat']),
                 'peruntukan' => $tanah->peruntukan,
                 'riwayat' => $tanah->riwayat_tanah,
-                'coordinates' => SuratHelper::coordinate($tanah->coordinates['data'])
+                'coordinates' => SuratHelper::coordinate($tanah->coordinates['data']),
+                'kepala_desa' => $pejabat->value->kepala_desa->nama,
+                'camat' => $pejabat->value->camat->nama,
+                'nip_camat' => $pejabat->value->camat->nip,
+                'petugas_pengukur' => $pejabat->value->Petugas_pengukur->nama,
+                'kasi_pemerintahan' => $pejabat->value->kasi_pemerintahan->nama,
             ];
             $template->setValues($data_replace);
             $template->setImageValue('land_sketch', ['path' => 'storage/land_sketch/' .  $tanah->land_sketch, 'width' => 378, 'height' => 378, 'ratio' => false]);
