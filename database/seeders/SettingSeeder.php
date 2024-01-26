@@ -72,6 +72,6 @@ class SettingSeeder extends Seeder
                 ]
             ]
         ];
-        Setting::create(['key' => 'pejabat', 'value' => json_encode($data)]);
+        Setting::create(['key' => 'pejabat', 'value' => $data]);
     }
 }
